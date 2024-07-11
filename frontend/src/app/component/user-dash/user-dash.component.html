@@ -1,0 +1,83 @@
+
+
+<div
+  class="p-2 bg-white block sm:flex items-center justify-between border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+>
+  <div class="w-full mb-1">
+    <div class="mb-4">
+      <nav class="flex mb-2" aria-label="Breadcrumb">
+        <ol
+          class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2"
+        >
+       
+        </ol>
+      </nav>
+      
+      <div class="flex justify-between items-center">
+        <h1
+          class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white"
+        >
+         
+        </h1>
+        <div
+          (click)="logOut()"
+          class="flex justify-center items-center cursor-pointer px-2 bg-gray-900 rounded shadow-lg"
+        >
+          <div>
+            <p class="font-bold text-red-600 px-2 py-2 text-center">
+              Logout
+            </p>
+          </div>
+          <div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- component -->
+<div class="h-screen bg-gray-200  dark:bg-gray-800   flex flex-wrap items-center  justify-center  ">
+    
+    <div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3    bg-white  shadow-lg    transform   duration-200 easy-in-out">
+        <div class=" h-32 overflow-hidden" >
+            <!-- <img class="w-full" src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="" /> -->
+        </div>
+        <div class="flex justify-center px-5  -mt-12">
+            <!-- <img class="h-32 w-32 bg-white p-2 rounded-full   " src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="" /> -->
+            <img class="h-32 w-32 bg-white p-2 rounded-full   " [src]="user.profileImg?user.profileImg:noProfileImg" alt="" />
+
+        </div>
+        <div class=" ">
+            <div class="text-center px-14" >
+                <h2 class="text-gray-800 text-3xl font-bold">{{ user.name}}</h2>
+                <!-- <a class="text-gray-400 mt-2 hover:text-blue-500" href="" target="BLANK()">immohitdhiman</a> -->
+                <p class="mt-2 text-gray-500 text-sm">{{ user.email}}</p>
+            </div>
+            <hr class="mt-6" />
+            <div class="flex  bg-gray-50 ">
+                <div class="text-center w-1/2 p-4 hover:bg-gray-100 cursor-pointer">
+                    <!-- <p (click)="onclick()"><span class="font-semibold"></span> Edit Profile</p> -->
+                    <!-- <button (click)="onclick()" [routerLink]="">edit Profile</button> -->
+                    <button [routerLink]="['/edituser' , user._id]">edit Profile</button>
+                </div>
+
+                <form  (submit)="onSubmit(user._id,$event)" >
+                  <div class="border"></div>
+
+                  <div class="text-center w-1/2 p-4 hover:bg-gray-100 cursor-pointer">
+                    <input type="file" (change)="onFileSelected($event , user._id)">
+                    <!-- <p> <span class="font-semibold"> </span> Upload Image</p> -->
+                    <button type="submit">Upload</button>
+                </div>
+
+                </form>
+            
+
+            </div>
+        </div>
+    </div>
+</div>
